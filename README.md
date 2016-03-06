@@ -1,4 +1,4 @@
-# Neighborhood Map
+# P5 Neighborhood Map
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][david-image]][david-url] [![devDependency Status][david-dev-image]][david-dev-url]
 
@@ -25,9 +25,9 @@ To build production version(optional):
 * [bootstrap](http://getbootstrap.com/)
 * [webpack](https://webpack.github.io/)
 
-[travis-url]: https://travis-ci.org/Ekateryna-Musina/neighborhood-map
-[travis-image]: https://travis-ci.org/Ekateryna-Musina/neighborhood-map.svg?branch=master
-[david-image]: https://david-dm.org/Ekateryna-Musina/neighborhood-map.svg
-[david-url]: https://david-dm.org/Ekateryna-Musina/neighborhood-map
-[david-dev-image]: https://david-dm.org/Ekateryna-Musina/neighborhood-map/dev-status.svg
-[david-dev-url]: https://david-dm.org/Ekateryna-Musina/neighborhood-map#info=devDependencies
+[travis-url]: https://travis-ci.org/Ekateryna-Musina/P5-Neighborhood-Map
+[travis-image]: https://travis-ci.org/Ekateryna-Musina/P5-Neighborhood-Map.svg?branch=master
+[david-image]: https://david-dm.org/Ekateryna-Musina/P5-Neighborhood-Map.svg
+[david-url]: https://david-dm.org/Ekateryna-Musina/P5-Neighborhood-Map
+[david-dev-image]: https://david-dm.org/Ekateryna-Musina/P5-Neighborhood-Map/dev-status.svg
+[david-dev-url]: https://david-dm.org/Ekateryna-Musina/P5-Neighborhood-Map#info=devDependencies
