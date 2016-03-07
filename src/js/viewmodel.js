@@ -41,11 +41,13 @@ var MarkerLocation = function MarkerLocation(title, latitude, longitude, locatio
  * @type {Object}
  */
 var LocationTypes = {
-  Park: 'Park',
+  Sea_Park: 'Sea_Park',
   Amusement_Park: 'Amusement_Park',
   Castle: 'Castle',
   Cafe: 'Cafe',
-  Museum: 'Museum'
+  Museum: 'Museum',
+  Ice_Cream: 'Ice_Cream',
+  Palace: 'Palace'
 };
 
 /**
@@ -57,13 +59,13 @@ var viewModel = {
   locations: ko.observableArray([
     new MarkerLocation('Frederiksborg Slot', 55.935014, 12.301254, 'Hillerød', LocationTypes.Castle),
     new MarkerLocation('Dyrehavsbakken', 55.774811, 12.579072, 'Klampenborg', LocationTypes.Amusement_Park),
-    new MarkerLocation('Amalienborg Slotsplads', 55.684068, 12.593031, 'Copenhagen', LocationTypes.Museum),
+    new MarkerLocation('Amalienborg Slotsplads', 55.684068, 12.593031, 'Copenhagen', LocationTypes.Palace),
     new MarkerLocation('Vikingeskibsmuseet I Roskilde', 55.650772, 12.081452, 'Roskilde', LocationTypes.Museum),
     new MarkerLocation('Tivoli', 55.674637, 12.565668, 'Copenhagen', LocationTypes.Amusement_Park),
     new MarkerLocation('Carlsberg', 55.664783, 12.529747, 'Copenhagen', LocationTypes.Museum),
-    new MarkerLocation('Ismageriet', 55.633627, 12.587814, 'Copenhagen', LocationTypes.Cafe),
-    new MarkerLocation('Amager Strandpark', 55.660409, 12.633346, 'Copenhagen', LocationTypes.Park),
-    new MarkerLocation('Charlottenlund Strandpark', 55.744748, 12.584639, 'Copenhagen', LocationTypes.Park),
+    new MarkerLocation('Ismageriet', 55.633627, 12.587814, 'Copenhagen', LocationTypes.Ice_Cream),
+    new MarkerLocation('Amager Strandpark', 55.660409, 12.633346, 'Copenhagen', LocationTypes.Sea_Park),
+    new MarkerLocation('Charlottenlund Strandpark', 55.744748, 12.584639, 'Copenhagen', LocationTypes.Sea_Park),
     new MarkerLocation('Next Door Café', 55.678803, 12.568591, 'Copenhagen', LocationTypes.Cafe)
   ]),
   types: ko.observableArray(Object.keys(LocationTypes)),

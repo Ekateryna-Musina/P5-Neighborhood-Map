@@ -37,11 +37,32 @@ window.yelp_api = (function() {
       'data' : parameters,
       'cache': true,
       'dataType' : 'jsonp',
-      'jsonpCallback' : 'jsonpCallback',
-      'success' : function(response){
-        callback(response);
-      }
+      'jsonpCallback' : 'jsonpCallback'
+    }).done(function (response) {
+      callback(response);
+    }).fail(function (jqXHR, exception) {
+      handle_ajax_fail(jqXHR, exception, callback);
     });
+  };
+
+  var handle_ajax_fail = function handle_ajax_fail(jqXHR, exception, callback) {
+    var error_message;
+    if (jqXHR.status === 0) {
+          error_message = 'Please check your network connection';
+      } else if (jqXHR.status == 404) {
+          error_message = 'Requested information for this location is not found. [404]';
+      } else if (jqXHR.status == 500) {
+          error_message = 'Internal Server Error [500] occurred while requesting location information.';
+      } else if (exception === 'parsererror') {
+          error_message = 'Requested JSON parse failed.';
+      } else if (exception === 'timeout') {
+          error_message = 'Time out error.';
+      } else if (exception === 'abort') {
+          error_message = 'Ajax request aborted.';
+      } else {
+          error_message = 'Uncaught Error.\n' + jqXHR.responseText;
+      }
+      callback(error_message);
   };
 
   /**

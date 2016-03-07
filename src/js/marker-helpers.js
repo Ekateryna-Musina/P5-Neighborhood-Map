@@ -104,8 +104,9 @@
    */
   var contentString = function contentString(obj) {
     if (!obj || !obj.businesses || !obj.businesses.length) {
-      return;
-    }
+      return '<div id="container"><div class="raw"><div class="col-md-2">' +
+      '<div class="raw"><img class="request-error-image"/></div></div>' +
+      '<div class="col-md-10"><p><h5>' + obj+ '</h5></p></div></div></div>'; }
 
     var business = obj.businesses[0];
 
