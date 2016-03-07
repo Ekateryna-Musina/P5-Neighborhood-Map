@@ -34,6 +34,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       },
       map = new google.maps.Map(element, mapOptions);
+    applyCustomMapStyles(map);
 
     google.maps.event.addDomListener(window, 'resize', function() {
       var center = map.getCenter();
@@ -44,6 +45,28 @@
     self.map = map;
     return map;
   };
+
+  var applyCustomMapStyles = function applyCustomMapStyles(map) {
+    // Create an array of styles.
+    var styles = [
+      {
+        featureType: 'road',
+        stylers: [
+          { visibility: 'on' },
+          { color: '#803780' }
+        ]
+      },{
+        featureType: 'water',
+        stylers: [
+          { hue: '#00ccff' }
+        ]
+      }
+    ];
+    
+    var styledMap = new google.maps.StyledMapType(styles, {name: 'Styled Map'});
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+  }
 
   /**
    * Animates marker
