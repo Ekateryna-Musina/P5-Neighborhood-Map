@@ -17,6 +17,31 @@ var setMarkersMap = function setMarkersMap(locations, map) {
   }
 };
 
+var iconBase = 'http://maps.google.com/mapfiles/kml/pal2/';
+var customMarkerIcons = {
+  Sea_Park: {
+    icon: iconBase + 'icon4.png' //sea_park.png
+  },
+  Amusement_Park: {
+    icon: iconBase + 'icon49.png' //themepark.png
+  },
+  Castle: {
+    icon: iconBase + 'icon10.png' //castle.png
+  },
+  Cafe: {
+    icon: iconBase + 'icon36.png' //cafe.png
+  },
+  Museum: {
+    icon: iconBase + 'icon3.png' //sight.png
+  },
+  Ice_Cream: {
+    icon: iconBase + 'icon19.png' //icecream.png
+  },
+  Palace: {
+    icon: iconBase + 'icon2.png' //castle.png
+  }
+}
+
 /**
  * MarkerLocation model
  * @param {[type]} title     marker title
@@ -33,7 +58,14 @@ var MarkerLocation = function MarkerLocation(title, latitude, longitude, locatio
   this.type = ko.observable(type);
 
   var latLng = new google.maps.LatLng(latitude, longitude);
-  this.marker = new google.maps.Marker({position: latLng, title: title, type: type, location: location, animation: google.maps.Animation.DROP});
+  this.marker = new google.maps.Marker({
+    position: latLng,
+    title: title,
+    type: type,
+    icon: customMarkerIcons[type].icon,
+    location: location,
+    animation: google.maps.Animation.DROP
+  });
 };
 
 /**
