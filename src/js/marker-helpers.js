@@ -43,7 +43,7 @@
     google.maps.event.trigger(map, 'resize');
     self.map = map;
     return map;
-  }
+  };
 
   /**
    * Animates marker
@@ -56,7 +56,7 @@
       marker.setAnimation(google.maps.Animation.BOUNCE);
       window.setTimeout(function() {
         marker.setAnimation(null);
-      }, 1500);
+      }, 1400);
     }
   };
 
@@ -93,7 +93,7 @@
 
     var callback = function(searchResult) {
       showInfoWindow(selectedMarker, searchResult);
-    }
+    };
 
     yelp_api.callSearchReviews(Yelp_API_Keys, selectedMarker.title, selectedMarker.location, callback);
   };

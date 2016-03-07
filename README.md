@@ -16,6 +16,9 @@ To install project dependencies:
 To run webpack dev server(only for development):
 `npm start`
 
+After the server has successfully started you can open the application using this link
+http://localhost:8080/
+
 To build production version(optional):
 `npm run build`
 

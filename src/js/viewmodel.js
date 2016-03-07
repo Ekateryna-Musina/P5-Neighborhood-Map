@@ -12,7 +12,7 @@ var markerHelpers = require('./marker-helpers');
  * @param {[type]} map       [description]
  */
 var setMarkersMap = function setMarkersMap(locations, map) {
-  for (var l in locations) {
+  for (var l = 0; l < locations.length; l++) {
     locations[l].marker.setMap(map);
   }
 };
@@ -111,7 +111,7 @@ ko.bindingHandlers.googlemap = {
 
     viewModel.map = markerHelpers.createMap(element, value.centerLat, value.centerLon);
 
-    for (var l in viewModel.locations()) {
+    for (var l = 0; l < viewModel.locations().length; l++) {
       viewModel.locations()[l].marker.addListener('click', function() {
         markerHelpers.searchLocationInfo(this);
       });
