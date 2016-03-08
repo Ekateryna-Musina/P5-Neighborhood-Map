@@ -7,7 +7,7 @@ module.exports = {
       loader: 'style-loader!css-loader?minimize!postcss-loader'
     }, {
       test: /\.(png|jpg|gif)$/,
-      loader: 'file-loader?name=img/img-[hash:6].[ext]'
+      loader: 'file-loader?name=dist/img/img-[hash:6].[ext]'
     }, {
       test: /\.html$/,
       loader: 'html-loader'

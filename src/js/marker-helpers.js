@@ -53,7 +53,7 @@
         featureType: 'road',
         stylers: [
           { visibility: 'on' },
-          { color: '#803780' }
+          { color: '#e2c1b9' }
         ]
       },{
         featureType: 'water',
@@ -123,12 +123,12 @@
 
   /**
    * Returns formatted html for marker info window
-   * @param  {[type]} obj Yelp seatch responce object
+   * @param  {[type]} obj Yelp search response object
    */
   var contentString = function contentString(obj) {
     if (!obj || !obj.businesses || !obj.businesses.length) {
       return '<div id="container"><div class="raw"><div class="col-md-2">' +
-      '<div class="raw"><img class="request-error-image"/></div></div>' +
+      '<div class="raw"><img class="request-error-image" src="' + require('../img/request_error.png') +'"/></div></div>' +
       '<div class="col-md-10"><p><h5>' + obj+ '</h5></p></div></div></div>'; }
 
     var business = obj.businesses[0];

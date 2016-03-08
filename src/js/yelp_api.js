@@ -11,8 +11,8 @@ window.yelp_api = (function() {
   /**
    * Searches for location information using Yelp API
    * @param  {[type]}   keys           Yelp API keys
-   * @param  {[type]}   title          Title of the place of interest
-   * @param  {[type]}   location_name  Name of the location (city, country, etc.)
+   * @param  {[string]} title          Title of the place of interest
+   * @param  {[string]} location_name  Name of the location (city, country, etc.)
    * @param  {Function} callback       Request callback function
    */
   var searchReviews = function(keys, title, location_name, callback) {
@@ -29,8 +29,7 @@ window.yelp_api = (function() {
     };
 
     var yelp_search_url = 'http://api.yelp.com/v2/search';
-    var signature = oauthSignature.generate('GET', yelp_search_url, parameters, keys.consumer_key_secret, keys.token_secret, {encodeSignature: false});
-    parameters.oauth_signature = signature;
+    parameters.oauth_signature = oauthSignature.generate('GET', yelp_search_url, parameters, keys.consumer_key_secret, keys.token_secret, {encodeSignature: false});
 
     jquery.ajax({
       'url' : yelp_search_url,

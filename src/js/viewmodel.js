@@ -6,7 +6,7 @@
 var ko = require('knockout');
 var markerHelpers = require('./marker-helpers');
 
-/* Ressingns map instance to locations lists
+/* Reassigns map instance to locations lists
  * [setMarkersMap description]
  * @param {[type]} locations [description]
  * @param {[type]} map       [description]
@@ -17,38 +17,37 @@ var setMarkersMap = function setMarkersMap(locations, map) {
   }
 };
 
-var iconBase = 'http://maps.google.com/mapfiles/kml/pal2/';
 var customMarkerIcons = {
   Sea_Park: {
-    icon: iconBase + 'icon4.png' //sea_park.png
+    icon: require('../img/sea_park.png')
   },
   Amusement_Park: {
-    icon: iconBase + 'icon49.png' //themepark.png
+    icon: require('../img/themepark.png')
   },
   Castle: {
-    icon: iconBase + 'icon10.png' //castle.png
+    icon: require('../img/castle.png')
   },
   Cafe: {
-    icon: iconBase + 'icon36.png' //cafe.png
+    icon: require('../img/cafe.png')
   },
   Museum: {
-    icon: iconBase + 'icon3.png' //sight.png
+    icon: require('../img/sight.png')
   },
   Ice_Cream: {
-    icon: iconBase + 'icon19.png' //icecream.png
+    icon: require('../img/icecream.png')
   },
   Palace: {
-    icon: iconBase + 'icon2.png' //castle.png
+    icon: require('../img/palace.png')
   }
-}
+};
 
 /**
  * MarkerLocation model
- * @param {[type]} title     marker title
- * @param {[type]} latitude  marker latitude value
- * @param {[type]} longitude marker longitude value
- * @param {[type]} location  location name, usually city name
- * @param {[type]} type      type of location
+ * @param {string} title     marker title
+ * @param {number} latitude  marker latitude value
+ * @param {number} longitude marker longitude value
+ * @param {string} location  location name, usually city name
+ * @param {string} type      type of location
  */
 var MarkerLocation = function MarkerLocation(title, latitude, longitude, location, type) {
   this.title = ko.observable(title);
