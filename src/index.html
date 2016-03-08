@@ -30,7 +30,9 @@
     </section>
   </div>
   <script src='main.js'></script>
-  <script async defer src='https://maps.googleapis.com/maps/api/js?callback=initMap'>
-  </script>
+  <script>function handleGoogleMapError() {
+    alert('There was a problem while loading the google map scripts');
+  }</script>
+  <script async src='https://maps.googleapis.com/maps/api/js?callback=initMap' onerror="handleGoogleMapError()"></script>
 </body>
 </html>
