@@ -45,6 +45,7 @@
     "jquery": "^2.2.1",
     "json-loader": "^0.5.4",
     "knockout": "^3.4.0",
+    "lockr": "^0.8.4",
     "nonce": "^1.0.3",
     "oauth-signature": "^1.3.1"
   }

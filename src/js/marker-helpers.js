@@ -6,8 +6,9 @@
 
 (function() {
   var infoWindow = null,
-    self = this,
-    yelp_api = require('./yelp_api');
+      self = this,
+      yelp_api = require('./yelp_api'),
+      lockr = require('lockr');
 
   /**
    * Insert here your personal Yelp API keys
@@ -115,10 +116,16 @@
     animateMarker(selectedMarker);
 
     var callback = function(searchResult) {
+      lockr.set(selectedMarker.title, searchResult);
       showInfoWindow(selectedMarker, searchResult);
     };
 
-    yelp_api.callSearchReviews(Yelp_API_Keys, selectedMarker.title, selectedMarker.location, callback);
+    var localYelpResults = lockr.get(selectedMarker.title);
+    if (localYelpResults == null) {
+      yelp_api.callSearchReviews(Yelp_API_Keys, selectedMarker.title, selectedMarker.location, callback);
+    } else {
+      showInfoWindow(selectedMarker, localYelpResults);
+    }
   };
 
   /**
