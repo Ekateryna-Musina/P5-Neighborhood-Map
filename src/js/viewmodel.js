@@ -6,17 +6,6 @@
 var ko = require('knockout');
 var markerHelpers = require('./marker-helpers');
 
-/* Reassigns map instance to locations lists
- * [setMarkersMap description]
- * @param {[type]} locations [description]
- * @param {[type]} map       [description]
- */
-var setMarkersMap = function setMarkersMap(locations, map) {
-  for (var l = 0; l < locations.length; l++) {
-    locations[l].marker.setMap(map);
-  }
-};
-
 var customMarkerIcons = {
   Sea_Park: {
     icon: require('../img/sea_park.png')
@@ -107,12 +96,30 @@ var viewModel = {
     markerHelpers.animateMarker(data.marker);
   },
   resetMarkers: function(selectedLocations) {
-    setMarkersMap(this.locations(), null);
-    setMarkersMap(selectedLocations, this.map);
+      var locationsToHide = this.locations().filter(function(x) { return selectedLocations.indexOf(x) < 0 });
+      setMarkersMap(locationsToHide, null, false);
+      setMarkersMap(selectedLocations, this.map, true);
   },
   setTypeFilter: function(parent, data) {
     this.typeFilter = data.type();
   }
+};
+
+/** Reassigns map instance to locations lists
+ * [setMarkersMap description]
+ * @param {[type]} locations [description]
+ * @param {[type]} map       [description]
+ * @param isVisible
+ */
+var setMarkersMap = function setMarkersMap(locations, map, isVisible) {
+    if ((map != null) && (typeof locations !== 'undefined') && (locations.length > 0) && (locations[0].marker.map == null)) {
+        for (var l = 0; l < locations.length; l++) {
+            locations[l].marker.setMap(map);
+        }
+    }
+    for (var l = 0; l < locations.length; l++) {
+        locations[l].marker.setVisible(isVisible);
+    }
 };
 
 /**
