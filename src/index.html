@@ -5,16 +5,17 @@
   <meta name='viewport' content='width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes'>
 </head>
 <body>
-<div class='container nopadding'>
-  <nav class='navbar navbar-default'>
-    <div class='container-fluid'>
-      <div class='navbar-header'>
-        <a class='navbar-brand' href='#'>
-          <span class='title'>Neighborhood Map</span>
-        </a>
-      </div>
+
+<nav class='navbar navbar-default navbar-fixed-top'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <a class='navbar-brand' href='#'>
+        <span class='title'>Neighborhood Map</span>
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
+<div class="container">
   <section class='row'>
     <div id='search' class='col-sm-3 no-right-padding'>
       <div class='input-group filter'>
@@ -37,6 +38,7 @@
     <div id='map' class='col-sm-9 no-left-padding map' data-bind='googlemap: { locations: filteredItems,centerLat: 55.7711876, centerLon: 12.4207571 }'></div>
   </section>
 </div>
+
 <script src='main.js'></script>
 <script>function handleGoogleMapError() {
   alert('There was a problem while loading the google map scripts');
