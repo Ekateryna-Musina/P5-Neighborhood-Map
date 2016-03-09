@@ -99,7 +99,7 @@ body,
         display: none;
     }
 
-    .filter-type {
+    .filter-type, .filter-search {
         height: 43px;
     }
 }
